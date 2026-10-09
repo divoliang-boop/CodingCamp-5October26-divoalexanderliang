@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To-Do List Life Dashboard by Divo Alexander Liang</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div class="app-container">
+    <header class="header">
+      <div class="brand">
+        <i class="fa-solid fa-gauge-high logo-icon"></i>
+        <span>Life Dashboard</span>
+      </div>
+      <button id="themeToggleBtn" class="theme-toggle" aria-label="Toggle theme">
+        <i class="fa-solid fa-moon"></i>
+      </button>
+    </header>
+
+    <main class="dashboard-grid">
+      <!-- Greeting & Clock Section -->
+      <section class="card greeting-card">
+        <div class="time-display" id="timeDisplay">00:00:00</div>
+        <div class="date-display" id="dateDisplay">Loading date...</div>
+        <h1 class="greeting-text">
+          <span id="greetingTime">Good afternoon</span>, 
+          <span id="nameContainer" class="editable-name" title="Click to edit name">
+            <span id="nameDisplay">User</span>
+            <i class="fa-solid fa-pen name-edit-icon"></i>
+          </span>
+        </h1>
+      </section>
+
+      <!-- Focus Timer Section -->
+      <section class="card timer-card">
+        <h2><i class="fa-solid fa-clock"></i> Focus Timer</h2>
+        
+        <div class="timer-options">
+          <button class="timer-opt-btn active" data-minutes="25">25m</button>
+          <button class="timer-opt-btn" data-minutes="15">15m</button>
+          <button class="timer-opt-btn" data-minutes="5">5m</button>
+          <button class="timer-opt-btn" data-minutes="50">50m</button>
+        </div>
+
+        <div class="timer-display" id="timerDisplay">25:00</div>
+
+        <div class="timer-controls">
+          <button id="startTimerBtn" class="btn btn-primary"><i class="fa-solid fa-play"></i> Start</button>
+          <button id="pauseTimerBtn" class="btn btn-secondary" disabled><i class="fa-solid fa-pause"></i> Pause</button>
+          <button id="resetTimerBtn" class="btn btn-danger"><i class="fa-solid fa-rotate-right"></i> Reset</button>
+        </div>
+      </section>
+
+      <!-- Quick Links Section -->
+      <section class="card links-card">
+        <h2><i class="fa-solid fa-bookmark"></i> Quick Links</h2>
+        
+        <form id="addLinkForm" class="inline-form">
+          <input type="text" id="linkTitleInput" placeholder="Name (e.g. Google)" required>
+          <input type="url" id="linkUrlInput" placeholder="URL (https://...)" required>
+          <button type="submit" class="btn btn-primary"><i class="fa-solid fa-plus"></i></button>
+        </form>
+
+        <div id="linksContainer" class="links-container">
+          <!-- Links injected by JS -->
+        </div>
+      </section>
+
+      <!-- To-Do List Section -->
+      <section class="card todo-card">
+        <div class="todo-header">
+          <h2><i class="fa-solid fa-list-check"></i> To-Do List</h2>
+          <span id="taskStats" class="badge">0 / 0 Done</span>
+        </div>
+
+        <form id="addTodoForm" class="todo-form">
+          <div class="input-group">
+            <input type="text" id="todoInput" placeholder="What needs to be done?" maxlength="250" required>
+            <button type="submit" class="btn btn-primary"><i class="fa-solid fa-plus"></i> Add Task</button>
+          </div>
+          <div id="duplicateWarning" class="warning-msg hidden">
+            <i class="fa-solid fa-triangle-exclamation"></i> Task already exists!
+          </div>
+        </form>
+
+        <div class="todo-list-wrapper">
+          <ul id="todoList" class="todo-list">
+            <!-- Tasks injected by JS -->
+          </ul>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
